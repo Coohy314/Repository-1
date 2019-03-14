@@ -8,6 +8,23 @@ type Uk = ^Uzel;
               levyPotomek, pravyPotomek: Uk;
             end;
 
+function vytvorVnitrni(hmotnostTyce,
+                       delkaLevehoRamene, delkaPravehoRamene: double;
+                       zavesenyLevyPotomek, zavesenyPravyPotomek: Uk
+                       ): Uk;
+var vrchol: Uk;
+begin
+  new(vrchol);
+  with vrchol^ do
+  begin
+    zavazi := hmotnostTyce;
+    levaDelka := delkaLevehoRamene;
+    pravaDelka := delkaPravehoRamene;
+    levyPotomek := zavesenyLevyPotomek;
+    pravyPotomek := zavesenyPravyPotomek;
+  end;
+  vytvorVnitrni := vrchol;
+end;
 
 function vytvorList(hmotnostZavazi: double): Uk;
 var vrchol: Uk;
